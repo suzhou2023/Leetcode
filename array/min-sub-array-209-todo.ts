@@ -1,3 +1,9 @@
+/**
+ * todo 本地通过，leetcode不通过
+ * @param nums 
+ * @param target 
+ * @returns 
+ */
 function minSubArrayLen(nums: number[], target: number): number {
     let sum = 0, l = 0, minLen = Number.MAX_SAFE_INTEGER
 
@@ -10,12 +16,12 @@ function minSubArrayLen(nums: number[], target: number): number {
         }
     }
 
-    return minLen
+    return minLen == Number.MAX_SAFE_INTEGER ? 0 : minLen
 }
 
 
 {
-    let nums = [2, 3, 1, 2, 4, 3]
-    let minLen = minSubArrayLen(nums, 7)
+    let nums = [1, 1, 1, 1, 1, 1, 1, 1]
+    let minLen = minSubArrayLen(nums, 6)
     console.log(minLen)
 }
