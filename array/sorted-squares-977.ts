@@ -15,6 +15,7 @@ function sortedSquares(nums: number[]): number[] {
     return nums2
 }
 
+
 {
     let nums = [-4, -1, 0, 3, 10]
     let nums2 = sortedSquares(nums)
