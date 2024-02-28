@@ -19,7 +19,51 @@ function preorderTraversal(tree: TreeNode): (number | undefined)[] {
     return res
 }
 
-{
-    let vals = preorderTraversal(testTree)
-    console.log('preorderTraversal', vals)
+function inorderTraversal(tree: TreeNode): (number | undefined)[] {
+    let s: (TreeNode | undefined)[] = []
+    let res: (number | undefined)[] = []
+
+    let node: TreeNode | undefined | null = tree
+    while (node || s.length > 0) {
+        if (node) {
+            s.push(node)
+            node = node.left
+        } else {
+            node = s.pop()
+            res.push(node?.val)
+            node = node?.right
+        }
+    }
+
+    return res
 }
+
+function postorderTraversal(tree: TreeNode): (number | undefined)[] {
+    let s: (TreeNode | undefined)[] = []
+    let res: (number | undefined)[] = []
+
+    let node: TreeNode | undefined | null = tree
+    while (node || s.length > 0) {
+        if (node) {
+            s.push(node)
+            node = node.left
+        } else {
+            node = s.pop()
+            res.push(node?.val)
+            node = node?.right
+        }
+    }
+
+    return res
+}
+
+
+{
+    // let vals = preorderTraversal(testTree)
+    let vals = inorderTraversal(testTree)
+    console.log(vals)
+}
+
+//         5
+//     4       6
+//  1    2   7    8

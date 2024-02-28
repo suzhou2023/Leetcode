@@ -1,12 +1,10 @@
 export class TreeNode {
-    val: number
+    val: number | undefined = undefined
     left: TreeNode | null = null
     right: TreeNode | null = null
 
-    constructor(val?: number, left?: TreeNode, right?: TreeNode) {
-        this.val = val == undefined ? 0 : val
-        this.left = left == undefined ? null : left
-        this.right = right == undefined ? null : right
+    constructor(val?: number) {
+        this.val = val
     }
 }
 
