@@ -14,13 +14,9 @@ function preorderTraversal(tree: TreeNode): (number | undefined)[] {
         let node = s.pop()
         res.push(node?.val)
         // 右子树根节点入栈
-        if (node?.right) {
-            s.push(node.right)
-        }
+        if (node?.right) s.push(node.right)
         // 左子树根节点入栈
-        if (node?.left) {
-            s.push(node.left)
-        }
+        if (node?.left) s.push(node.left)
     }
 
     return res
@@ -96,4 +92,3 @@ function postorderTraversal(tree: TreeNode): (number | undefined)[] {
     let vals3 = postorderTraversal(testTree) // 1,2,4,7,8,6,5
     console.log(vals3)
 }
-
