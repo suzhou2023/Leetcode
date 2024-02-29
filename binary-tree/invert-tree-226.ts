@@ -1,11 +1,23 @@
 import { TreeNode } from "./TreeNode"
 
-function postorderTraversal(node: TreeNode, vals: (number | undefined)[]) {
+
+function postorderTraversal(node: TreeNode) {
     if (node.left) {
-        postorderTraversal(node.left, vals)
+        postorderTraversal(node.left)
     }
     if (node.right) {
-        postorderTraversal(node.right, vals)
+        postorderTraversal(node.right)
     }
-    vals.push(node.val)
+    if (node.left || node.right) {
+        let tmp = node.left
+        node.left = node.right
+        node.right = tmp
+    }
+}
+
+function invertTree(root: TreeNode | null): TreeNode | null {
+    if (!root) return null
+
+    postorderTraversal(root)
+    return root
 }

@@ -1,16 +1,16 @@
-class TreeNode {
+export class NTreeNode {
     val: number
-    children: TreeNode[]
+    children: NTreeNode[]
     constructor(val?: number) {
         this.val = (val == undefined ? 0 : val)
         this.children = []
     }
 }
 
-function levelOrder(root: TreeNode | null): number[][] {
+function levelOrder(root: NTreeNode | null): number[][] {
     if (!root) return []
 
-    let q: TreeNode[] = []
+    let q: NTreeNode[] = []
     let res: number[][] = []
 
     q.push(root)
