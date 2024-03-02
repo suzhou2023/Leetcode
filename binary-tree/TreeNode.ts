@@ -8,6 +8,10 @@ export class TreeNode {
     }
 }
 
+//         5
+//     4       6
+//  1    2   7    8
+
 export let testTree = new TreeNode(5)
 testTree.left = new TreeNode(4)
 testTree.left.left = new TreeNode(1)
