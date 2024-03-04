@@ -1,27 +1,19 @@
 import { TreeNode, testTree } from "./TreeNode"
 
-function getMinimumDifference(root: TreeNode): number {
-    if (!root.left && !root.right) return Number.MAX_SAFE_INTEGER
-
-    let min = Number.MAX_SAFE_INTEGER
+function traversal(root: TreeNode, prev: number[], minDiff: number[]) {
     if (root.left) {
-        let node = root.left
-        while (node.right) node = node.right
-        let leftMin = getMinimumDifference(root.left)
-        min = Math.min(Math.abs(root.val - node.val), leftMin)
+        traversal(root.left, prev, minDiff)
     }
 
-    if (root.right) {
-        let node = root.right
-        while (node.left) node = node.left
-        let rightMin = getMinimumDifference(root.right)
-        min = Math.min(Math.abs(root.val - node.val), rightMin)
-    }
+    minDiff[0] = Math.min(Math.abs(root.val - prev[0]), minDiff[0])
+    prev[0] = root.val
 
-    return min
+    if (root.right) traversal(root.right, prev, minDiff)
 }
 
-{
-    let res = getMinimumDifference(testTree)
-    console.log(res)
+function getMinimumDifference(root: TreeNode): number {
+    let prev = [Number.MAX_SAFE_INTEGER], minDiff = [Number.MAX_SAFE_INTEGER]
+    traversal(root, prev, minDiff)
+
+    return minDiff[0]
 }

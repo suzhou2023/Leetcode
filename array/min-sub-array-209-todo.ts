@@ -1,10 +1,10 @@
 /**
- * todo 本地通过，leetcode不通过
- * @param nums 
+ * 滑动窗口经典题
  * @param target 
+ * @param nums 
  * @returns 
  */
-function minSubArrayLen(nums: number[], target: number): number {
+function minSubArrayLen(target: number, nums: number[]): number {
     let sum = 0, l = 0, minLen = Number.MAX_SAFE_INTEGER
 
     for (let r = 0; r < nums.length; r++) {
@@ -21,7 +21,7 @@ function minSubArrayLen(nums: number[], target: number): number {
 
 
 {
-    let nums = [1, 1, 1, 1, 1, 1, 1, 1]
-    let minLen = minSubArrayLen(nums, 6)
+    let nums = [2, 3, 1, 2, 4, 3]
+    let minLen = minSubArrayLen(7, nums)
     console.log(minLen)
 }
