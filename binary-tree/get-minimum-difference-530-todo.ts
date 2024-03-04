@@ -1,5 +1,11 @@
 import { TreeNode, testTree } from "./TreeNode"
 
+/**
+ * 中序遍历记录前一个节点
+ * @param root 
+ * @param prev 
+ * @param minDiff 
+ */
 function traversal(root: TreeNode, prev: number[], minDiff: number[]) {
     if (root.left) {
         traversal(root.left, prev, minDiff)
