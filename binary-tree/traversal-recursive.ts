@@ -1,6 +1,6 @@
 import { TreeNode, testTree } from "./TreeNode"
 
-function inorderTraversal(tree: TreeNode, vals: (number | undefined)[]) {
+function inorderTraversal(tree: TreeNode, vals: number[]) {
     if (tree.left) {
         inorderTraversal(tree.left, vals)
     }
@@ -10,7 +10,7 @@ function inorderTraversal(tree: TreeNode, vals: (number | undefined)[]) {
     }
 }
 
-function preorderTraversal(tree: TreeNode, vals: (number | undefined)[]) {
+function preorderTraversal(tree: TreeNode, vals: number[]) {
     vals.push(tree.val)
     if (tree.left) {
         preorderTraversal(tree.left, vals)
@@ -20,7 +20,7 @@ function preorderTraversal(tree: TreeNode, vals: (number | undefined)[]) {
     }
 }
 
-function postorderTraversal(tree: TreeNode, vals: (number | undefined)[]) {
+function postorderTraversal(tree: TreeNode, vals: number[]) {
     if (tree.left) {
         postorderTraversal(tree.left, vals)
     }

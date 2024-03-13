@@ -3,8 +3,8 @@ export class TreeNode {
     left: TreeNode | null = null
     right: TreeNode | null = null
 
-    constructor(val?: number) {
-        this.val = val == undefined ? 0 : val
+    constructor(val: number) {
+        this.val = val
     }
 }
 

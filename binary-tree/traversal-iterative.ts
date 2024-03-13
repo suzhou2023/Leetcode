@@ -3,16 +3,16 @@
  */
 import { TreeNode, testTree } from "./TreeNode"
 
-function preorderTraversal(tree: TreeNode): (number | undefined)[] {
+function preorderTraversal(tree: TreeNode): number[] {
     let s: TreeNode[] = []
-    let res: (number | undefined)[] = []
+    let res: number[] = []
 
     // 入栈根节点
     s.push(tree)
     while (s.length > 0) {
         // 由于是先序，出栈子树根节点后先进行遍历
         let node = s.pop()
-        res.push(node?.val)
+        res.push(node?.val == undefined ? 0 : node.val)
         // 右子树根节点入栈
         if (node?.right) s.push(node.right)
         // 左子树根节点入栈
@@ -22,9 +22,9 @@ function preorderTraversal(tree: TreeNode): (number | undefined)[] {
     return res
 }
 
-function inorderTraversal(tree: TreeNode): (number | undefined)[] {
-    let s: (TreeNode | undefined)[] = []
-    let res: (number | undefined)[] = []
+function inorderTraversal(tree: TreeNode): number[] {
+    let s: TreeNode[] = []
+    let res: number[] = []
 
     // 辅助指针
     let node: TreeNode | undefined | null = tree
@@ -37,7 +37,7 @@ function inorderTraversal(tree: TreeNode): (number | undefined)[] {
         } else {
             // 出栈子树根节点进行遍历，因为上一轮左子树为空或已遍历
             let tmpNode = s.pop()
-            res.push(tmpNode?.val)
+            res.push(tmpNode?.val == undefined ? 0 : tmpNode.val)
             // 指针移动到节点右子树
             node = tmpNode?.right
         }
@@ -46,9 +46,9 @@ function inorderTraversal(tree: TreeNode): (number | undefined)[] {
     return res
 }
 
-function postorderTraversal(tree: TreeNode): (number | undefined)[] {
-    let s: (TreeNode | undefined)[] = []
-    let res: (number | undefined)[] = []
+function postorderTraversal(tree: TreeNode): number[] {
+    let s: TreeNode[] = []
+    let res: number[] = []
 
     // 辅助指针
     let node: TreeNode | undefined | null = tree
@@ -65,7 +65,7 @@ function postorderTraversal(tree: TreeNode): (number | undefined)[] {
             let tmpNode = s.pop()
             // 右子树为空或右子树已遍历
             if (!tmpNode?.right || preNode == tmpNode?.right) {
-                res.push(tmpNode?.val)
+                res.push(tmpNode?.val == undefined ? 0 : tmpNode.val)
                 preNode = tmpNode
             } else {
                 // 节点右子树未遍历，重新入栈节点

@@ -1,17 +1,18 @@
 import { TreeNode, testTree } from "./TreeNode"
 
-export function levelOrderTraversal(tree: TreeNode): (number | undefined)[][] {
+export function levelOrderTraversal(tree: TreeNode): number[][] {
     let q: TreeNode[] = []
-    let res: (number | undefined)[][] = []
+    let res: number[][] = []
 
     q.push(tree)
     while (q.length > 0) {
         let size = q.length
-        let levelArr: (number | undefined)[] = []
+        let levelArr: number[] = []
 
         for (let i = 0; i < size; i++) {
             let node = q.shift()
-            levelArr.push(node?.val)
+            let val = node?.val == undefined ? 0 : node.val
+            levelArr.push(val)
 
             if (node?.left) q.push(node.left)
             if (node?.right) q.push(node.right)

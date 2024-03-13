@@ -22,7 +22,7 @@ function combinationSum4(nums: number[], target: number): number {
  *            (1)item0    (2)item1    (3)item2
  * cap = 1    1
  * cap = 2    1           1+1
- * cap = 3    2           2+1         3+1       
+ * cap = 3    2           2+1         3+1
  * cap = 4    4           4+2         6+1
  * 
  * 遍历过程理解：
