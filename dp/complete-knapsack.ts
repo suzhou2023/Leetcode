@@ -25,7 +25,7 @@ function maxValue2(weight: number[], value: number[], w: number): number {
 {
     let weight = [1, 3, 4]
     let value = [15, 20, 30]
-    let res = maxValue1d(weight, value, 7)
+    let res = maxValue2(weight, value, 7)
     console.log(res)
 }
 
