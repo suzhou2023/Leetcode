@@ -1,7 +1,7 @@
 import { TreeNode, testTree } from "./TreeNode"
 
 /**
- * 递归遍历写法比较简单，唯一要注意的是，传入节点可为空，这样在写法上比较简洁和统一。
+ * 递归遍历写法比较简单，唯一要注意的是，递归到空节点再结束，这样代码更加简洁和统一。
  */
 
 function inorderTraversal(node: TreeNode | null, vals: number[]) {
