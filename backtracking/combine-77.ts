@@ -6,14 +6,14 @@
  * @param start 每一轮递归中，循环的开始数字
  * @param group 存放一个组合
  */
-function backtracking(n: number, k: number, start: number, group: number[], res: number[][]) {
+function backtracking(n: number, k: number, startIndex: number, group: number[], res: number[][]) {
     if (group.length == k) {
         res.push([...group])
         return
     }
 
     // 注意剪枝操作
-    for (let i = start; i <= n - (k - group.length) + 1; i++) {
+    for (let i = startIndex; i <= n - (k - group.length) + 1; i++) {
         group.push(i)
         backtracking(n, k, i + 1, group, res)
         group.pop() // 回溯(?)

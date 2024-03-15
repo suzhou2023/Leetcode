@@ -1,5 +1,5 @@
 
-function backtracking(digits: string, index: number, map: Map<string, string>, group: string[], res: string[]) {
+function backtracking17(digits: string, index: number, map: Map<string, string>, group: string[], res: string[]) {
     if (group.length == digits.length) {
         res.push(group.join(''))
         return
@@ -10,7 +10,7 @@ function backtracking(digits: string, index: number, map: Map<string, string>, g
 
     for (let i = 0; i < str.length; i++) {
         group.push(str.charAt(i))
-        backtracking(digits, index + 1, map, group, res)
+        backtracking17(digits, index + 1, map, group, res)
         group.pop()
     }
 }
@@ -31,7 +31,7 @@ function letterCombinations(digits: string): string[] {
 
     let group: string[] = []
     let res: string[] = []
-    backtracking(digits, 0, map, group, res)
+    backtracking17(digits, 0, map, group, res)
 
     return res
 }
