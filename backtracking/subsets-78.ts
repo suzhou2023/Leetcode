@@ -1,17 +1,17 @@
-function backtracking78(n: number, k: number, startIndex: number, group: number[], res: number[][]) {
-    // if (group.length == k) {
-    //     res.push([...group])
-    //     return
-    // }
+function backtracking78(nums, startIndex: number, group: number[], res: number[][]) {
 
-    // 注意剪枝操作
-    for (let i = startIndex; i <= n - (k - group.length) + 1; i++) {
-        group.push(i)
-        backtracking78(n, k, i + 1, group, res)
+    for (let i = startIndex; i < nums.length; i++) {
+        group.push(nums[i])
+        res.push([...group])
+        backtracking78(nums, i + 1, group, res)
         group.pop()
     }
 }
 
 function subsets(nums: number[]): number[][] {
+    let group: number[] = []
+    let res: number[][] = [[]]
+    backtracking78(nums, 0, group, res)
 
+    return res
 }
