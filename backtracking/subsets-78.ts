@@ -1,4 +1,4 @@
-function backtracking78(nums, startIndex: number, group: number[], res: number[][]) {
+function backtracking78(nums: number[], startIndex: number, group: number[], res: number[][]) {
 
     for (let i = startIndex; i < nums.length; i++) {
         group.push(nums[i])
@@ -14,4 +14,10 @@ function subsets(nums: number[]): number[][] {
     backtracking78(nums, 0, group, res)
 
     return res
+}
+
+{
+    let nums = [1, 2, 3, 4]
+    let res = subsets(nums)
+    console.log(res)
 }
