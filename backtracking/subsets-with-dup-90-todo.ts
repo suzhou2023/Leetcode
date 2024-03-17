@@ -1,9 +1,13 @@
+/**
+ * 有重复元素的子集问题，先要对集合进行排序（？）
+ */
+
 function backtracking90(nums: number[], startIndex: number, group: number[], res: number[][]) {
+    res.push([...group])
 
     for (let i = startIndex; i < nums.length; i++) {
         if (i > startIndex && nums[i] == nums[i - 1]) continue
         group.push(nums[i])
-        res.push([...group])
         backtracking90(nums, i + 1, group, res)
         group.pop()
     }
@@ -11,7 +15,7 @@ function backtracking90(nums: number[], startIndex: number, group: number[], res
 
 function subsetsWithDup(nums: number[]): number[][] {
     let group: number[] = []
-    let res: number[][] = [[]]
+    let res: number[][] = []
     nums = nums.sort()
     backtracking90(nums, 0, group, res)
 
@@ -23,4 +27,3 @@ function subsetsWithDup(nums: number[]): number[][] {
     let res = subsetsWithDup(nums)
     console.log(res)
 }
-

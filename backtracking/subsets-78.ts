@@ -1,8 +1,8 @@
 function backtracking78(nums: number[], startIndex: number, group: number[], res: number[][]) {
+    res.push([...group])
 
     for (let i = startIndex; i < nums.length; i++) {
         group.push(nums[i])
-        res.push([...group])
         backtracking78(nums, i + 1, group, res)
         group.pop()
     }
@@ -10,7 +10,7 @@ function backtracking78(nums: number[], startIndex: number, group: number[], res
 
 function subsets(nums: number[]): number[][] {
     let group: number[] = []
-    let res: number[][] = [[]]
+    let res: number[][] = []
     backtracking78(nums, 0, group, res)
 
     return res
