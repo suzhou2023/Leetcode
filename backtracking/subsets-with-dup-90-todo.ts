@@ -5,9 +5,13 @@
 function backtracking90(nums: number[], startIndex: number, group: number[], res: number[][]) {
     res.push([...group])
 
+    let used: number = Number.MIN_SAFE_INTEGER
     for (let i = startIndex; i < nums.length; i++) {
-        if (i > startIndex && nums[i] == nums[i - 1]) continue
+        // 树层去重
+        // if (i > startIndex && nums[i] == nums[i - 1]) continue
+        if (nums[i] == used) continue
         group.push(nums[i])
+        used = nums[i]
         backtracking90(nums, i + 1, group, res)
         group.pop()
     }
