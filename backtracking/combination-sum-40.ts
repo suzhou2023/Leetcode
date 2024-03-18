@@ -22,7 +22,7 @@ function backtracking40(candidates: number[], target: number, startIndex: number
 function combinationSum2(candidates: number[], target: number): number[][] {
     let group: number[] = []
     let res: number[][] = []
-    candidates = candidates.sort()
+    candidates.sort()
     backtracking40(candidates, target, 0, group, res)
 
     return res

@@ -20,7 +20,7 @@ function backtracking90(nums: number[], startIndex: number, group: number[], res
 function subsetsWithDup(nums: number[]): number[][] {
     let group: number[] = []
     let res: number[][] = []
-    nums = nums.sort()
+    nums.sort()
     backtracking90(nums, 0, group, res)
 
     return res

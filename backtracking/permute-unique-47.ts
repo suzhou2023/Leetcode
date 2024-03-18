@@ -22,7 +22,7 @@ function permuteUnique(nums: number[]): number[][] {
     let usedIndices: number[] = []
     let group: number[] = []
     let res: number[][] = []
-    nums = nums.sort()
+    nums.sort()
     backtracking47(nums, usedIndices, group, res)
 
     return res
