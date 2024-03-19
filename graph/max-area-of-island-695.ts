@@ -1,15 +1,15 @@
 
-function dfs(grid: string[][], visited: boolean[][], x: number, y: number, area: number[]) {
+function dfs695(grid: string[][], visited: boolean[][], x: number, y: number, area: number[]) {
     if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) return
 
     if (visited[x][y] || grid[x][y] == '0') return
     visited[x][y] = true
     area[0] += 1
 
-    dfs(grid, visited, x, y - 1, area)
-    dfs(grid, visited, x, y + 1, area)
-    dfs(grid, visited, x - 1, y, area)
-    dfs(grid, visited, x + 1, y, area)
+    dfs695(grid, visited, x, y - 1, area)
+    dfs695(grid, visited, x, y + 1, area)
+    dfs695(grid, visited, x - 1, y, area)
+    dfs695(grid, visited, x + 1, y, area)
 }
 
 function maxAreaOfIsland(grid: string[][]): number {
@@ -23,7 +23,7 @@ function maxAreaOfIsland(grid: string[][]): number {
         for (let j = 0; j < n; j++) {
             if (!visited[i][j] && grid[i][j] == '1') {
                 let area: number[] = [0]
-                dfs(grid, visited, i, j, area)
+                dfs695(grid, visited, i, j, area)
                 maxArea = Math.max(area[0], maxArea)
             }
         }
