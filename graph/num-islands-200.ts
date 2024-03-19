@@ -29,9 +29,6 @@ function numIslands(grid: string[][]): number {
 }
 
 {
-    // let visited: boolean[][] = new Array(3).fill(null).map(() => new Array(3).fill(false))
-    // console.log(visited)
-
     // let grid = [
     //     ["1", "1", "1", "1", "0"],
     //     ["1", "1", "0", "1", "0"],
