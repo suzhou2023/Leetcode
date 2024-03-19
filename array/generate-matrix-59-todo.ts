@@ -24,6 +24,6 @@ function generateMatrix(n: number): number[][] {
 }
 
 {
-    let res = generateMatrix(4)
-    console.log(res)
+    // let res = generateMatrix(4)
+    // console.log(res)
 }
