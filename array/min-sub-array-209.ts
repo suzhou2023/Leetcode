@@ -11,7 +11,7 @@ function minSubArrayLen(target: number, nums: number[]): number {
         sum += nums[r]
         while (sum >= target) {
             let len = r - l + 1
-            minLen = len < minLen ? len : minLen
+            minLen = Math.min(len, minLen)
             sum -= nums[l++]
         }
     }

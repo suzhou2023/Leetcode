@@ -1,3 +1,6 @@
+/**
+ * 不同的两个数相消
+ */
 function majorityElement(nums: number[]): number {
     let candidate = 0, count = 0
 

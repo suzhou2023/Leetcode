@@ -1,4 +1,4 @@
-function maxProfit(prices: number[]): number {
+function maxProfit122(prices: number[]): number {
 
     let i = 0, profit = 0, buy = Number.MIN_SAFE_INTEGER
     while (i < prices.length) {
