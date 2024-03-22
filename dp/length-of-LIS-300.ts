@@ -1,8 +1,6 @@
-
 /**
- * dp[i]定义为以nums[i]结尾的最长子序列长度
+ * dp[i]定义为以nums[i]结尾的最长递增子序列长度
  */
-
 function lengthOfLIS(nums: number[]): number {
     let dp: number[] = new Array(nums.length).fill(1)
 
