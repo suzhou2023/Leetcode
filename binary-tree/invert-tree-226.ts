@@ -1,6 +1,9 @@
 import { TreeNode } from "./TreeNode"
 
-
+/**
+ * 翻转二叉树，前序和后序都可以
+ * @param node 
+ */
 function postorderTraversal(node: TreeNode) {
     if (node.left) {
         postorderTraversal(node.left)
