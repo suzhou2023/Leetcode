@@ -11,11 +11,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     let rightPreorder = preorder.slice(leftInorder.length + 1) // 右子树前序
 
     let root = new TreeNode(rootVal)
-    let left = buildTree(leftPreorder, leftInorder)
-    let right = buildTree(rightPreorder, rightInorder)
-
-    root.left = left
-    root.right = right
+    root.left = buildTree(leftPreorder, leftInorder)
+    root.right = buildTree(rightPreorder, rightInorder)
 
     return root
 }
@@ -23,5 +20,6 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 {
     let inorder = [1, 2, 3]
     let postorder = [3, 2, 1]
-    buildTree(inorder, postorder)
+    // buildTree(inorder, postorder)
+    console.log(inorder.slice(10))
 }

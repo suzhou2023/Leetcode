@@ -3,23 +3,16 @@ import { TreeNode } from "./TreeNode"
 /** 
  * 二叉搜索树的最近公共祖先问题
  */
-
 function lowestCommonAncestor(node: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
-    if (node == null) return null
+    return traversal(node, p, q)
+}
 
-    let left = p.val <= q.val ? p : q
-    let right = p.val <= q.val ? q : p
+function traversal(node: TreeNode | null, p: TreeNode, q: TreeNode): TreeNode | null {
+    if (!node) return null
 
-    if (left.val <= node.val && right.val >= node.val) return node
+    if (p.val < node.val && q.val < node.val) return traversal(node.left, p, q)
+    if (p.val > node.val && q.val > node.val) return traversal(node.right, p, q)
 
-    if (right.val <= node.val) {
-        return lowestCommonAncestor(node.left, left, right)
-    }
-
-    if (left.val >= node.val) {
-        return lowestCommonAncestor(node.right, left, right)
-    }
-
-    return null
+    return node
 }
 
