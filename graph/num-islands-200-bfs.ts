@@ -10,8 +10,8 @@ function bfs(grid: string[][], visited: boolean[][], x: number, y: number) {
         let i = cur[0], j = cur[1]
         if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) continue
         if (visited[i][j] || grid[i][j] == '0') continue
-
         visited[i][j] = true
+
         q.push([i, j - 1])
         q.push([i, j + 1])
         q.push([i - 1, j])
