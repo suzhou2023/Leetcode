@@ -1,4 +1,6 @@
-
+/**
+ * 分割问题：分割回文串
+ */
 function isPalindrome(str: string): boolean {
     for (let i = 0, j = str.length - 1; i <= j; i++, j--) {
         if (str[i] != str[j]) return false

@@ -1,29 +1,29 @@
-
 /**
- * 经典组合问题
+ * 组合问题：从1到n选k个不重复的数
  * @param n 最大值
  * @param k 取几个数
  * @param start 每一轮递归中，循环的开始数字
  * @param group 存放一个组合
  */
-function backtracking(n: number, k: number, startIndex: number, group: number[], res: number[][]) {
+let count77 = 0
+function backtracking77(n: number, k: number, start: number, group: number[], res: number[][]) {
+    count77 += 1 // test
     if (group.length == k) {
         res.push([...group])
         return
     }
 
-    // 注意剪枝操作
-    for (let i = startIndex; i <= n - (k - group.length) + 1; i++) {
+    for (let i = start; i <= n; i++) {
         group.push(i)
-        backtracking(n, k, i + 1, group, res)
-        group.pop() // 回溯(?)
+        backtracking77(n, k, i + 1, group, res)
+        group.pop() // 回溯
     }
 }
 
 function combine(n: number, k: number): number[][] {
     let res: number[][] = []
     let group: number[] = []
-    backtracking(n, k, 1, group, res)
+    backtracking77(n, k, 1, group, res)
     return res
 }
 
@@ -39,6 +39,8 @@ function combine(n: number, k: number): number[][] {
  */
 
 {
-    let res = combine(8, 2)
+    let res = combine(100, 4)
     console.log(res)
+    console.log('len', res.length)
+    console.log('count', count77)
 }

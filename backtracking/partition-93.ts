@@ -1,3 +1,6 @@
+/**
+ * 切割问题：复原ip地址
+ */
 function isValidIpNum(str: string): boolean {
     if (str == '0') return true
     if (str.startsWith('0')) return false
@@ -15,7 +18,6 @@ function backtracking93(s: string, startIndex: number, group: string[], res: str
         return
     }
 
-    // 剪枝
     for (let i = startIndex; i < startIndex + 3 && i < s.length; i++) {
         let sub = s.substring(startIndex, i + 1)
         if (!isValidIpNum(sub)) continue
