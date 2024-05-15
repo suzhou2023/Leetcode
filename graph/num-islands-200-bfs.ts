@@ -1,7 +1,7 @@
 
-function bfs(grid: string[][], visited: boolean[][], x: number, y: number) {
+function bfs(grid: string[][], visited: boolean[][], r: number, c: number) {
     let q: number[][] = []
-    q.push([x, y])
+    q.push([r, c])
 
     while (q.length > 0) {
         let cur = q.shift()
@@ -20,16 +20,18 @@ function bfs(grid: string[][], visited: boolean[][], x: number, y: number) {
 }
 
 function numIslands2(grid: string[][]): number {
-    let m = grid.length
-    let n = grid[0].length
+    let r = grid.length
+    let c = grid[0].length
 
-    let visited: boolean[][] = new Array(m).fill(null).map(() => new Array(n).fill(false))
+    let visited: boolean[][] = new Array(r).fill(null).map(() => new Array(c).fill(false))
 
     let count = 0
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (!visited[i][j] && grid[i][j] == '1') count += 1
-            bfs(grid, visited, i, j)
+    for (let i = 0; i < r; i++) {
+        for (let j = 0; j < c; j++) {
+            if (!visited[i][j] && grid[i][j] == '1') {
+                count += 1
+                bfs(grid, visited, i, j)
+            }
         }
     }
 

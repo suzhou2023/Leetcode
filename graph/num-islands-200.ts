@@ -1,25 +1,25 @@
 
-function dfs(grid: string[][], visited: boolean[][], x: number, y: number) {
-    if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) return
+function dfs(grid: string[][], visited: boolean[][], r: number, c: number) {
+    if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length) return
 
-    if (visited[x][y] || grid[x][y] == '0') return
-    visited[x][y] = true
+    if (visited[r][c] || grid[r][c] == '0') return
+    visited[r][c] = true
 
-    dfs(grid, visited, x, y - 1)
-    dfs(grid, visited, x, y + 1)
-    dfs(grid, visited, x - 1, y)
-    dfs(grid, visited, x + 1, y)
+    dfs(grid, visited, r, c - 1)
+    dfs(grid, visited, r, c + 1)
+    dfs(grid, visited, r - 1, c)
+    dfs(grid, visited, r + 1, c)
 }
 
 function numIslands(grid: string[][]): number {
-    let m = grid.length
-    let n = grid[0].length
+    let r = grid.length
+    let c = grid[0].length
 
-    let visited: boolean[][] = new Array(m).fill(null).map(() => new Array(n).fill(false))
+    let visited: boolean[][] = new Array(r).fill(null).map(() => new Array(c).fill(false))
 
     let count = 0
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
+    for (let i = 0; i < r; i++) {
+        for (let j = 0; j < c; j++) {
             if (!visited[i][j] && grid[i][j] == '1') {
                 count += 1
                 dfs(grid, visited, i, j)
