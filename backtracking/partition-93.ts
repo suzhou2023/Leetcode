@@ -10,8 +10,9 @@ function isValidIpNum(str: string): boolean {
     return padStr > '000' && padStr <= '255'
 }
 
-
+let count93 = 0
 function backtracking93(s: string, startIndex: number, group: string[], res: string[]) {
+    count93 += 1 // test
     if (group.length == 4) {
         if (startIndex < s.length) return
         res.push(group.join('.'))
@@ -41,4 +42,5 @@ function restoreIpAddresses(s: string): string[] {
 {
     let res = restoreIpAddresses('25525511135')
     console.log(res)
+    console.log('count', count93)
 }

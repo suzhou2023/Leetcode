@@ -1,4 +1,6 @@
-
+/**
+ * 组合问题：电话号码的字母组合
+ */
 function backtracking17(digits: string, index: number, map: Map<string, string>, group: string[], res: string[]) {
     if (group.length == digits.length) {
         res.push(group.join(''))

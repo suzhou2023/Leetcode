@@ -9,8 +9,7 @@ function isPalindrome(str: string): boolean {
 }
 
 function backtracking131(s: string, startIndex: number, group: string[], res: string[][]) {
-    let totalLen = group.reduce((acc, cur) => acc + cur.length, 0)
-    if (totalLen == s.length) {
+    if (startIndex == s.length) {
         res.push([...group])
         return
     }
