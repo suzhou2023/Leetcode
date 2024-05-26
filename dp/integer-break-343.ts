@@ -11,7 +11,7 @@ function integerBreak(n: number): number {
     let dp = new Array(n + 1).fill(0)
     dp[2] = 1
 
-    for (let i = 2; i <= n; i++) {
+    for (let i = 3; i <= n; i++) {
         let max = 0
         for (let j = 1; j <= Math.floor(i / 2); j++) {
             let val = Math.max(j * dp[i - j], j * (i - j))
