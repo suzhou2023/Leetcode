@@ -4,7 +4,7 @@
  * weight[] = [1, 3, 4]
  * value[] = [15, 20, 30]
  * 
- * dp[cap] - 容量为cap的背包所背的最大价值
+ * dp[cap] - 容量为cap的背包所背的最大价值量的数组
  * 
  * 递推公式：
  * dp[cap] = max(dp[cap], dp[cap-weight[i]] + value[i])
@@ -14,8 +14,8 @@ function maxValue1d(weight: number[], value: number[], w: number): number {
     let num = weight.length
     let dp: number[] = new Array(w + 1).fill(0)
 
-    for (let i = 0; i < num; i++) {
-        for (let cap = w; cap >= weight[i]; cap--) {
+    for (let i = 0; i < num; i++) { // 遍历物品
+        for (let cap = w; cap >= weight[i]; cap--) { // 从大到小遍历背包
             dp[cap] = Math.max(dp[cap], dp[cap - weight[i]] + value[i])
         }
     }
@@ -31,7 +31,7 @@ function maxValue1d(weight: number[], value: number[], w: number): number {
 }
 
 /**
- * 双重循环遍历过程的理解：
+ * 双重循环遍历，外层遍历物品（纵向），内层从大到小遍历背包（横向）
  * 
  *   7          6          5          4         3       2       1     --  背包大小
  *  (15)       (15)       (15)       (15)      (15)    (15)    (15)   --  物品0
@@ -39,6 +39,19 @@ function maxValue1d(weight: number[], value: number[], w: number): number {
  *  (20+30)    (15+30)    (15+30)    (15+20)   (20)    (15)    (15)   --  物品2
  * 
  * 外层遍历表示挨个遍历不同种类的物品，内层遍历表示逆序遍历背包大小；
- * 每一个外层遍历结束，都表示对于已经遍历过的物品，各个大小的背包能装入的最大价值；
+ * 每一个外层遍历结束，都表示对于已经遍历过的物品，各个大小的背包能装入的最大价值量；
+ */
+
+
+/**
+ * 为什么不能正序遍历背包
+ *
+ *   1       2       3       4         5          6          7        --  背包大小
+ *  (15)    (15)    (15)    (15)      (15)       (15)       (15)      --  物品0
+ *  (15)    (15)    (20)    (15+20)   (15+20)    (20+20)    (35+20)   --  物品1
+ *
+ * 可以发现，对于物品1，遍历到背包容量6时，已经不对了；
+ * 原因是：对于物品i，大背包的最大价值量等于上一轮小背包最大价值量加上当前物品价值量，如果正序遍历背包，
+ * 上一轮小背包最大价值量已经被覆盖了。所以会出现重复放入物品i的情况。
  */
 
