@@ -54,4 +54,3 @@ function maxValue1d(weight: number[], value: number[], w: number): number {
  * 原因是：对于物品i，大背包的最大价值量等于上一轮小背包最大价值量加上当前物品价值量，如果正序遍历背包，
  * 上一轮小背包最大价值量已经被覆盖了。所以会出现重复放入物品i的情况。
  */
-

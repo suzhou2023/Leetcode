@@ -1,10 +1,3 @@
-/**
- * 01背包组合问题，见笔记
- * 
- * 填满cap这么大容积的包，有dp[cap]种方法
- * 
- * dp[cap] += dp[cap - nums[i]]
- */
 function findTargetSumWays(nums: number[], target: number): number {
     let sum = nums.reduce((acc, cur) => acc + cur, 0)
     if (sum < target) return 0
