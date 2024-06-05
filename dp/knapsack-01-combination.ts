@@ -20,8 +20,8 @@ function sumWays(nums: number[], w: number): number {
 }
 
 {
-    let nums = [1, 2, 1, 3, 1]
-    console.log(sumWays(nums, 4))
+    let nums = [4, 2, 8, 3, 6]
+    console.log(sumWays(nums, 20))
 }
 
 /**

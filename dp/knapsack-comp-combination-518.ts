@@ -30,6 +30,6 @@ function change(amount: number, coins: number[]): number {
 
 {
     let coins = [4, 2, 8, 3, 6]
-    let res = change(100, coins)
+    let res = change(200, coins)
     console.log(res)
 }

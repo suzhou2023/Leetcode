@@ -27,7 +27,7 @@ function combinationSum40(candidates: number[], target: number): number[][] {
 }
 
 {
-    let candidates = [10, 1, 2, 7, 6, 1, 5]
+    let candidates = [10, 1, 2, 7, 6, 3, 5]
     let res = combinationSum40(candidates, 8)
-    console.log(res)
+    console.log(res, res.length)
 }

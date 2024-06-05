@@ -1,9 +1,7 @@
 /**
  * 排列问题：无重复元素数组，其元素的全排列
  */
-let count46 = 0
 function backtracking46(nums: number[], usedIndices: number[], group: number[], res: number[][]) {
-    count46 += 1 // test
     if (group.length == nums.length) {
         res.push([...group])
         return
@@ -29,8 +27,7 @@ function permute46(nums: number[]): number[][] {
 }
 
 {
-    let nums = [1, 2, 3]
+    let nums = [1, 2, 3, 4]
     let res = permute46(nums)
-    console.log(res)
-    console.log('count', count46)
+    console.log(res, res.length)
 }

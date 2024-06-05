@@ -9,7 +9,7 @@
  * 递推公式：
  * dp[cap] = max(dp[cap], dp[cap-weight[i]] + value[i])
  */
-function maxValue2(weight: number[], value: number[], w: number): number {
+function maxValueComp(weight: number[], value: number[], w: number): number {
     let num = weight.length
     let dp: number[] = new Array(w + 1).fill(0)
 
@@ -21,14 +21,6 @@ function maxValue2(weight: number[], value: number[], w: number): number {
 
     return dp[w]
 }
-
-{
-    let weight = [1, 3, 4]
-    let value = [15, 20, 30]
-    let res = maxValue2(weight, value, 7)
-    console.log(res)
-}
-
 /**
  *          (0)1    (0)2       (0)3          (0)4
  * i = 0    (15)    (15+15)    (15+15+15)    (15+15+15+15)
@@ -41,3 +33,28 @@ function maxValue2(weight: number[], value: number[], w: number): number {
  * 完全背包的外层遍历和内层遍历是可以交换的；
  * 完全背包的背包大小的遍历方向是正向的；
  */
+
+/**
+ * 完全背包可以改变for循环嵌套顺序
+ */
+function maxValueComp2(weight: number[], value: number[], w: number): number {
+    let num = weight.length
+    let dp: number[] = new Array(w + 1).fill(0)
+
+    for (let cap = 1; cap <= w; cap++) { // 从小到大遍历背包
+        for (let i = 0; i < num; i++) { // 遍历物品
+            if (cap < weight[i]) continue
+            dp[cap] = Math.max(dp[cap], dp[cap - weight[i]] + value[i])
+        }
+    }
+
+    return dp[w]
+}
+
+{
+    let weight = [1, 3, 4]
+    let value = [5, 20, 30]
+    let w = 9
+    console.log(maxValueComp(weight, value, w))
+    console.log(maxValueComp2(weight, value, w))
+}
