@@ -2,7 +2,7 @@
  * dp[m][n] - 最多m个0和n个1的最大子集长度
  * 
  * num0(strs[i])
- * dp[m][n] = dp[m - num0][n-num1] + 1
+ * dp[m][n] = dp[m - num0][n - num1] + 1
  */
 
 function findMaxForm(strs: string[], m: number, n: number): number {
